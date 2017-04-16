@@ -1,0 +1,6 @@
+#!/usr/bin/with-contenv bash
+cd /app/sonarr || exit
+exec \
+    s6-setuidgid abc mono NzbDrone.exe "${RUN_OPTS}" \
+        -nobrowser \
+        -data=/config
